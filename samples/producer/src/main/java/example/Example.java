@@ -19,10 +19,13 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALING
  * IN THE SOFTWARE.
  */
-package example;
+package src.main.java.example;
 
+import com.couchbase.client.core.dcp.BucketStreamAggregatorState;
 import com.couchbase.kafka.CouchbaseKafkaConnector;
 import com.couchbase.kafka.DefaultCouchbaseKafkaEnvironment;
+import com.couchbase.kafka.Direction;
+import com.couchbase.kafka.state.RunMode;
 
 public class Example {
     public static void main(String[] args) {
@@ -37,6 +40,7 @@ public class Example {
                         .couchbaseStateSerializerClass("example.NullStateSerializer")
                         .dcpEnabled(true);
         CouchbaseKafkaConnector connector = CouchbaseKafkaConnector.create(builder.build());
-        connector.run();
+        BucketStreamAggregatorState state = connector.buildState(Direction.FROM_CURRENT);
+        connector.run(state, RunMode.RESUME);
     }
 }

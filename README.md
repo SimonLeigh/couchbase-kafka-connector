@@ -112,3 +112,6 @@ Copyright 2015 Couchbase Inc.
 Licensed under the Apache License, Version 2.0.
 
 See [the Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
+
+## Running for Bigstep
+java -cp couchbase-kafka-connector.jar src.main.java.example.Example

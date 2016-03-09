@@ -29,9 +29,9 @@ public class Example {
         DefaultCouchbaseKafkaEnvironment.Builder builder =
                 (DefaultCouchbaseKafkaEnvironment.Builder) DefaultCouchbaseKafkaEnvironment.builder()
                         .kafkaFilterClass("example.SampleFilter")
-                        .kafkaTopic("default")
-                        .kafkaZookeeperAddress("kafka1.vagrant")
-                        .couchbaseNodes("couchbase1.vagrant")
+                        .kafkaTopic("bigstep")
+                        .kafkaZookeeperAddress("instance-16296.bigstep.io:2181")
+                        .couchbaseNodes("instance-16297.bigstep.io")
                         .couchbaseBucket("default")
                         .kafkaValueSerializerClass("example.SampleEncoder")
                         .couchbaseStateSerializerClass("example.NullStateSerializer")
